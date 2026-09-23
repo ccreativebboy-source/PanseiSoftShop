@@ -20,5 +20,24 @@ const audio = document.getElementById('bg-audio');
 
     // Intentar reproducir inmediatamente (por si el navegador lo permite)
     if (audio) {
-        audio.volume = 0.8; // Ajusta el volumen si lo deseas (0.0 a 1.0)
-        };
+        audio.volume = 0.5; // Ajusta el volumen si lo deseas (0.0 a 1.0)
+        
+        const promise = audio.play();
+        if (promise !== undefined) {
+            promise.catch(() => {
+                // Si el navegador bloqueó la reproducción automática sin interacción,
+                // reproducimos el audio al primer clic o toque que dé el usuario en la página.
+                const startAudio = () => {
+                    audio.play();
+                    document.removeEventListener('click', startAudio);
+                    document.removeEventListener('touchstart', startAudio);
+                    document.removeEventListener('keydown', startAudio);
+                };
+
+                document.addEventListener('click', startAudio);
+                document.addEventListener('touchstart', startAudio);
+                document.addEventListener('keydown', startAudio);
+            });
+        }
+    }
+;
