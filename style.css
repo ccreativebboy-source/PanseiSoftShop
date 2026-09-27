@@ -85,8 +85,8 @@ body {
 }
 
 .cajasproducto {
-    background-image: url('Archivos/Imagen/Caja.png');
-    background-size: cover;
+    background-image: url('Archivos/Imagen/Caja1.png');
+    background-size: 100% 100%; /* El primer 100% es el ancho, el segundo es el alto. Esto la aplasta y estira según la caja */
     background-position: center;
     background-repeat: no-repeat;
     padding: 20px;
