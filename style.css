@@ -4,7 +4,12 @@
     padding: 0;
 }
 
-
+header {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
 
 /* Pantalla completa para el preloader */
 #loader-screen {
@@ -35,6 +40,7 @@
 }
 
 body {
+    display: contents;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,4 +147,78 @@ body {
     word-break: break-word; /* Si hay una palabra larguísima, la corta para no salirse */
     overflow-wrap: break-word;
     margin: 0;
+}
+
+.scrollimg {
+    width: 2000px;
+}
+
+main {
+    transform: scale(0.9);
+}
+
+.contenido-layout {
+            display: grid;
+            grid-template-columns: minmax(120px, 1fr) minmax(0, 3fr) minmax(120px, 1fr);
+            gap: 20px;
+            align-items: start;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .contenido-layout > aside {
+            min-width: 0;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .contenido-layout > aside img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .contenido-layout > main {
+            min-width: 0;
+        }
+        @media (max-width: 800px) {
+            .contenido-layout {
+                grid-template-columns: 1fr;
+            }
+            .contenido-layout > aside {
+                display: none;
+            }
+        }
+
+.titulo-productos {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 200px minmax(500px, 1000px) 200px;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+}
+
+.aside-izquierdo,
+.aside-derecho {
+    margin-top: 45px;
+    width: 300px;
+    background-image: url('Archivos/Imagen/Caja.png');
+    background-size: 100% 100%; /* El primer 100% es el ancho, el segundo es el alto. Esto la aplasta y estira según la caja */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.aside-izquierdo img,
+.aside-derecho img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    width: 100%;
 }
